@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter 视频转 GIF</title>
+    <title>Twitter Video Downloader | Twitter 视频下载</title>
     <style>
         * {
             margin: 0;
@@ -113,8 +113,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎬 Twitter 视频下载</h1>
-        <p class="subtitle">粘贴 Twitter/X 推文链接，一键下载视频</p>
+        <h1>🎬 Twitter Video Downloader</h1>
+        <p class="subtitle">Paste Twitter/X tweet link to download video<br>粘贴 Twitter/X 推文链接，一键下载视频</p>
         
         <div class="input-group">
             <input 
@@ -125,7 +125,7 @@
             >
         </div>
         
-        <button id="convertBtn" onclick="convertVideo()">下载视频</button>
+        <button id="convertBtn" onclick="convertVideo()">Download Video | 下载视频</button>
         
         <div id="status" class="status"></div>
     </div>
@@ -144,12 +144,12 @@
             const url = urlInput.value.trim();
             
             if (!url) {
-                showStatus('请输入 Twitter 链接', 'error');
+                showStatus('❌ Please enter a Twitter link | 请输入 Twitter 链接', 'error');
                 return;
             }
 
             convertBtn.disabled = true;
-            showStatus('<span class="loader"></span>解析中...', 'info');
+            showStatus('<span class="loader"></span>Parsing... | 解析中...', 'info');
 
             try {
                 const response = await fetch('/convert', {
@@ -163,7 +163,7 @@
                 const data = await response.json();
 
                 if (response.ok && data.success) {
-                    showStatus('✅ 下载完成！', 'success');
+                    showStatus('✅ Download complete! | 下载完成！', 'success');
                     
                     // 自动下载
                     window.location.href = data.download_url;
@@ -174,10 +174,10 @@
                         showStatus('', '');
                     }, 2000);
                 } else {
-                    showStatus(`❌ ${data.error || '转换失败'}`, 'error');
+                    showStatus(`❌ ${data.error}`, 'error');
                 }
             } catch (error) {
-                showStatus(`❌ 网络错误: ${error.message}`, 'error');
+                showStatus(`❌ Network error | 网络错误: ${error.message}`, 'error');
             } finally {
                 convertBtn.disabled = false;
             }

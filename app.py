@@ -4,7 +4,9 @@ import subprocess
 import os
 import uuid
 from pathlib import Path
-import shutil
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -21,7 +23,7 @@ def convert_video():
     url = data.get('url', '').strip()
     
     if not url:
-        return jsonify({'error': '请提供有效的 URL'}), 400
+        return jsonify({'error': 'Please provide a valid URL | 请提供有效的 URL'}), 400
     
     session_id = str(uuid.uuid4())
     video_path = TEMP_DIR / f"{session_id}.mp4"
@@ -39,17 +41,17 @@ def convert_video():
             'http_headers': {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             },
-            'proxy': 'http://www-proxy.ericsson.se:8080',
+            'proxy': os.getenv('PROXY_URL', ''),
         }
         
         print(f"正在处理 URL: {url}")
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             if not info:
-                return jsonify({'error': '无法解析该链接'}), 400
+                return jsonify({'error': 'Unable to parse the link | 无法解析该链接'}), 400
         
         if not video_path.exists():
-            return jsonify({'error': '视频下载失败'}), 500
+            return jsonify({'error': 'Video download failed | 视频下载失败'}), 500
         
         print(f"视频下载成功: {video_path}")
         
@@ -62,20 +64,20 @@ def convert_video():
         error_msg = str(e)
         print(f"yt-dlp 错误: {error_msg}")
         if 'Connection' in error_msg or '10054' in error_msg:
-            return jsonify({'error': '网络连接失败，请检查代理设置'}), 400
-        return jsonify({'error': f'下载错误: {error_msg}'}), 400
+            return jsonify({'error': 'Network connection failed, please check proxy settings | 网络连接失败,请检查代理设置'}), 400
+        return jsonify({'error': f'Download error | 下载错误: {error_msg}'}), 400
     except Exception as e:
         print(f"未知错误: {str(e)}")
         import traceback
         traceback.print_exc()
-        return jsonify({'error': f'处理失败: {str(e)}'}), 500
+        return jsonify({'error': f'Processing failed | 处理失败: {str(e)}'}), 500
 
 @app.route('/download/<session_id>')
 def download_video(session_id):
     video_path = TEMP_DIR / f"{session_id}.mp4"
     
     if not video_path.exists():
-        return "文件不存在或已过期", 404
+        return "File not found or expired | 文件不存在或已过期", 404
     
     return send_file(
         video_path,
