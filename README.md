@@ -1,8 +1,10 @@
-# Twitter Video Downloader | Twitter 视频下载工具
+# X Video Downloader | Twitter 视频下载工具
 
 A simple web application to download videos from Twitter/X tweets.
 
 一个简单的 Web 应用，用于下载 Twitter/X 推文中的视频。
+
+<img src="cover.png" width="100%" alt="Project Cover">
 
 ## Features | 功能特性
 
