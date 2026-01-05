@@ -6,6 +6,12 @@ A simple web application to download videos from Twitter/X tweets.
 
 <img src="cover.png" width="100%" alt="Project Cover">
 
+Demo Video:
+
+https://github.com/user-attachments/assets/ef904b50-653a-48a8-a0f6-826b7856929a
+
+
+
 ## Features | 功能特性
 
 - 🎬 Support Twitter/X video link parsing | 支持 Twitter/X 视频链接解析
