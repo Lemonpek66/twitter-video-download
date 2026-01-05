@@ -1,17 +1,22 @@
 # X Video Downloader | Twitter 视频下载工具
 
-A simple web application to download videos from Twitter/X tweets.
+**Twitter Video Downloader 2025 | Download X Videos & GIF High Quality | X 视频下载工具**
 
-一个简单的 Web 应用，用于下载 Twitter/X 推文中的视频。
+A simple web application to download videos from Twitter/X tweets. Free Twitter video downloader, X video saver, download Twitter GIF, save X videos in high quality MP4 format.
+
+一个简单的 Web 应用，用于下载 Twitter/X 推文中的视频。免费 Twitter 视频下载器，X 视频保存工具，高质量下载推特视频和 GIF。
 
 <img src="cover.png" width="100%" alt="Project Cover">
 
 ## Features | 功能特性
 
 - 🎬 Support Twitter/X video link parsing | 支持 Twitter/X 视频链接解析
-- ⚡ Automatic video download | 自动下载视频
+- ⚡ Automatic video download in MP4 format | 自动下载 MP4 格式视频
+- 🎨 High quality video download | 高质量视频下载
 - 🔒 Proxy support via .env configuration | 通过 .env 配置代理支持
 - 🧹 Automatic cleanup of temporary files | 自动清理临时文件
+- 🆓 Free Twitter video downloader | 免费 Twitter 视频下载器
+- 🌐 Works with both twitter.com and x.com | 支持 twitter.com 和 x.com
 
 ## Installation | 安装步骤
 
@@ -65,6 +70,10 @@ Visit | 访问: http://localhost:5000
 3. Click "Download Video" button | 点击"下载视频"按钮
 4. Wait for processing, video will download automatically | 等待处理完成，视频会自动下载
 
+## Keywords | 关键词
+
+Twitter Video Downloader, X Video Downloader, Download Twitter Videos, Download X Videos, Twitter Video Saver, X Video Saver, Twitter GIF Downloader, Download Twitter GIF, Save Twitter Videos, Twitter 视频下载, X 视频下载工具, 推特视频下载器, Twitter Video Downloader 2025, Free Twitter Video Download, High Quality Twitter Video Download
+
 ## Tech Stack | 技术栈
 
 - **Backend | 后端**: Flask
@@ -89,3 +98,11 @@ Visit | 访问: http://localhost:5000
 - Configure proxy in `.env` file | 在 `.env` 文件中配置代理
 - Check if proxy is running | 检查代理是否正在运行
 - Verify proxy URL format is correct | 验证代理 URL 格式是否正确
+
+## Disclaimer | 免责声明
+
+**English:**
+This tool is for educational and personal use only. Do not use it for illegal scraping or copyright infringement. Users are responsible for complying with Twitter's Terms of Service and applicable laws.
+
+**中文:**
+本工具仅供学习交流使用，请勿用于非法抓取及侵犯版权的行为。使用者需自行遵守 Twitter 服务条款及相关法律法规。
